@@ -1,6 +1,6 @@
 .navbar{
  height: 7 rem;
- background-color: #ccffcc
+ background-color: #ccffcc;
 }
 
 .navbar_middle{
@@ -14,7 +14,8 @@
  vertical-align: middle;
  margin-left: 100px;
  margin-right: 450px;
- display: hide
+ display: hide;
+ text-decoration: none
 }
 
 .navbar_header{
@@ -51,3 +52,49 @@
  text-decoration: none;
  color:darkgray
 }
+
+html{
+ background-color:rgb(69, 190, 69)
+}
+
+.liberty, .lilia, .zuckers{
+ float: left;
+ margin: 30px;
+}
+
+.lilia{
+ width: 650px
+}
+
+.centralpark{
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ width: 1000px
+}
+
+body{
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1,
+h4{
+ font-size: 25px;
+ text-align: left;
+}
+
+h2{
+ font-size: 20px;
+}
+
+#lilia{
+ vertical-align: center;
+ float: left;
+}
+
+.zuckers{
+ vertical-align: center;
+ float: left;
+ width: 650px
+}
+
