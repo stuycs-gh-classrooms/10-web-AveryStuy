@@ -1,0 +1,53 @@
+.navbar{
+ height: 7 rem;
+ background-color: #ccffcc
+}
+
+.navbar_middle{
+ display: flex;
+ align-items: center;
+}
+
+.navbar_icon_image{
+ width: 200px;
+ display: inline;
+ vertical-align: middle;
+ margin-left: 100px;
+ margin-right: 450px;
+ display: hide
+}
+
+.navbar_header{
+ height: auto;
+ width: 100%;
+ border-bottom: 1px solid grey
+}
+
+.navbar_links{
+ flex-direction: row;
+ align-items: center;
+ display: inline;
+ width: 100%;
+ padding: 0;
+ font-size: 2rem;
+ font-family: 'Courier New', Courier, monospace;
+ color: white;
+}
+
+.index_link,
+.food_link, 
+.architecture_link,
+.entertainment_link {
+ margin: 50px;
+ text-decoration: none;
+ color:lightslategray
+}
+
+.index_link_within,
+.food_link_within,
+.architecture_link_within,
+.entertainment_link_within {
+ margin: 50px;
+ text-decoration: none;
+ color:darkgray
+}
