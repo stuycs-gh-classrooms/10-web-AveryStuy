@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Fractals!</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+
+  <body>
+   <h1>
+    Fractals! 
+   </h1>
+   <h3>
+    Koch Curve
+   </h3>
+   <h6> Basic curve koch_curve(t, 4, 20) </h6>
+   <img src = "basic koch.PNG">
+   <br>
+   <br>
+   <p>
+    The Koch curve is commonly turned into a snowflake by implementing the curve on three sides
+    of an equilateral triangle. I used this and made more abstract shapes by having each iteration of the curve have a 50-50 chance of turning right-side up or upside-down. For higher iterations, I find it looks very much like a realistic coastline!
+   </p>
+   <img src="koch modification.PNG">
+   <pre><code>
+def draw_koch(t, depth, length):
+  if depth == 1:
+    t.fd(length)
+  else:
+    if random.randrange(2) == 0:
+        draw_koch(t, (depth - 1), length)
+        t.lt(60)
+        draw_koch(t, (depth - 1), length)
+        t.rt(120)
+        draw_koch(t, (depth - 1), length)
+        t.lt(60)
+        draw_koch(t, (depth - 1), length)
+    else:
+        draw_koch(t, (depth - 1), length)
+        t.rt(60)
+        draw_koch(t, (depth - 1), length)
+        t.lt(120)
+        draw_koch(t, (depth - 1), length)
+        t.rt(60)
+        draw_koch(t, (depth - 1), length)
+
+def area(t, depth, length):
+    draw_koch(t, depth, length)
+    t.rt(120)
+    draw_koch(t, depth, length)
+    t.rt(120)
+    draw_koch(t, depth, length)
+    t.rt(120)
+    t.ht()
+</code></pre>
+<br>
+<p>
+ _____________________________________________________________________________________________
+</p>
+<br>
+    <h3>
+      Sierpinski Triangle
+    </h3>
+    <h6> Basic triangle sierpinski(t, 5, 200) </h6>
+    <img src = "basic sierpinski.PNG">
+    <br>
+    <br>
+    <p>
+     I turned the triangle into a right triangle and alternated the colors between blue and pink.
+    </p>
+    <img src="sierpinksi modification.PNG">
+    <br>
+    <pre><code>
+ def draw_sierpinski(t, depth, size):
+    if depth == 1:
+        triangle(t, size)
+    else:
+        t.color("blue")
+        draw_sierpinski(t, depth - 1, (size / 2))
+        t.color("pink")
+        t.fd(size / 2)
+        draw_sierpinski(t, depth - 1, (size / 2))
+        t.color("blue")
+        t.bk(size / 2)
+        t.lt(90)
+        t.fd(size / 2)
+        t.rt(90)
+        t.color("pink")
+        draw_sierpinski(t, depth - 1, (size / 2))
+        t.color("blue")
+        t.lt(90)
+        t.bk(size / 2)
+        t.rt(90)
+        t.ht()
+ </code></pre>
+ <br>
+  _____________________________________________________________________________________________
+     <h3>
+       Tree
+     </h3>
+     <h6> Basic tree tree(t, 4, 50, 20) </h6>
+     <img src = "basic tree.PNG">
+     <br>
+     <br>
+     <p>
+      I turned the tree brown, except at the lowest depth, where there was a 50-50 chance of the tree expanding and adding two green leaves. I made the width progressively smaller and the angles random.
+     </p>
+     <img src="tree modification.PNG">
+     <br>
+     <br>
+     <pre><code>
+      def tree(t, depth, size, angle):
+      if depth == 0:
+          t.fd(size)
+          t.bk(size)
+          if random.randrange(3) == 2:
+              t.color("green")
+              t.rt(angle)
+              t.fd(size)
+              t.bk(size)
+              t.lt(2 * angle)
+              t.fd(size)
+              t.bk(size)
+              t.rt(angle)
+              t.color("brown")
+      else:
+          t.width(depth)
+          t.color("brown")
+          t.fd(size)
+          t.rt(angle)
+          tree(t, depth-1, size, angle)
+          t.width(depth - 1)
+          t.lt(2 * angle)
+          tree(t, depth-1, size, angle)
+          t.width(depth - 1)
+          t.rt(angle)
+          t.bk(size)
+          angle = angle + random.randrange(6)
+  </code></pre>
+  <br>
+  <p>
